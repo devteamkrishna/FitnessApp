@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnessAppPro.Views.DietPlan">
+
+    <Grid>
+        <!-- Background Image -->
+        <Image Source="gym_background8.jpg" Aspect="AspectFill" Opacity="0.3" />
+        <!-- Optional transparency for readability -->
+
+        <!-- Main Content Over Background -->
+        <Grid RowDefinitions="Auto,*" Padding="20">
+
+            <!-- Header with Back Button and Title -->
+            <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                <Label HorizontalOptions="Center" LineBreakMode="NoWrap">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Diet " FontSize="45" FontAttributes="Bold" TextColor="Black" />
+                            <Span Text="Plan" FontSize="45" FontAttributes="Bold" TextColor="Yellow" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </Grid>
+
+            <!-- Main Content -->
+            <ScrollView Grid.Row="1">
+                <Grid VerticalOptions="Center" HorizontalOptions="Center">
+                    <VerticalStackLayout Spacing="25"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center">
+
+                        <!-- Subtitle -->
+                        <Label Text="Choose Your Diet Plan"
+                       FontSize="25"
+                       TextColor="Black"
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"/>
+
+                        <!-- Picker Card -->
+                        <Frame Padding="10"
+                       CornerRadius="12"
+                       BorderColor="Transparent"
+                       BackgroundColor="Transparent"
+                       HasShadow="True">
+                            <Picker x:Name="DietPicker"
+                            FontAttributes="Bold"
+                            Title="Select Diet Type"
+                            TextColor="Black"
+                            TitleColor="Black"
+                            SelectedIndexChanged="OnDietSelected">
+                                <Picker.Items>
+                                    <x:String>Vegetarian</x:String>
+                                    <x:String>Non-Vegetarian</x:String>
+                                </Picker.Items>
+                            </Picker>
+                        </Frame>
+
+                        <!-- Diet Plan Display Card -->
+                        <Frame x:Name="DietPlanFrame"
+                       Padding="20"
+                       CornerRadius="15"
+                       BorderColor="Transparent"
+                       BackgroundColor="Transparent"
+                       HasShadow="True"
+                       IsVisible="False">
+                            <Label x:Name="DietPlanLabel"
+                           FontSize="15"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           LineBreakMode="WordWrap"/>
+                        </Frame>
+
+                    </VerticalStackLayout>
+                </Grid>
+            </ScrollView>
+        </Grid>
+
+    </Grid>
+</ContentPage>

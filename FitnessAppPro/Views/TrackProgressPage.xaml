@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnessAppPro.Views.TrackProgressPage"
+             BackgroundColor="#0F172A">
+
+    <Grid>
+
+        <!-- Background Image -->
+        <Image Source="gym_bg.png"
+               Aspect="AspectFill"
+               HorizontalOptions="Fill"
+               VerticalOptions="FillAndExpand"
+               ZIndex="0"/>
+
+        <!-- Overlay for readability -->
+        <BoxView Color="#00000099"
+                 HorizontalOptions="Fill"
+                 VerticalOptions="FillAndExpand"
+                 ZIndex="1" />
+
+        <!-- Scrollable Foreground Content -->
+        <ScrollView ZIndex="2">
+            <VerticalStackLayout Padding="25,40,25,30" Spacing="30">
+
+                <!-- Header -->
+                <VerticalStackLayout Spacing="5" HorizontalOptions="Center">
+                    <Label Text="Hello, Fitness Enthusiast!"
+                           FontSize="30"
+                           FontAttributes="Bold"
+                           TextColor="#FFFFFF"
+                           HorizontalOptions="Center" />
+                    <Label Text="Track your progress and stay motivated 💪"
+                           FontSize="18"
+                           TextColor="#E5E7EB"
+                           HorizontalOptions="Center" />
+                </VerticalStackLayout>
+
+                <!-- Stats Cards -->
+                <Grid ColumnSpacing="15">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Weight Card -->
+                    <Frame Grid.Column="0"
+                           CornerRadius="20"
+                           Padding="20"
+                           HasShadow="True"
+                           BackgroundColor="#1E40AF">
+                        <VerticalStackLayout HorizontalOptions="Center" Spacing="5">
+                            <Label Text="Current Weight" FontSize="16" TextColor="White" />
+                            <Label Text="68 kg" FontSize="28" FontAttributes="Bold" TextColor="#93C5FD" />
+                            <Label Text="Goal: 65 kg" FontSize="13" TextColor="#E0F2FE" />
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <!-- BMI Card -->
+                    <Frame Grid.Column="1"
+                           CornerRadius="20"
+                           Padding="20"
+                           HasShadow="True"
+                           BackgroundColor="#16A34A">
+                        <VerticalStackLayout HorizontalOptions="Center" Spacing="5">
+                            <Label Text="BMI" FontSize="16" TextColor="White" />
+                            <Label Text="22.5" FontSize="28" FontAttributes="Bold" TextColor="#BBF7D0" />
+                            <Label Text="Normal" FontSize="13" TextColor="#DCFCE7" />
+                        </VerticalStackLayout>
+                    </Frame>
+                </Grid>
+
+                <!-- Workout Progress -->
+                <Frame BackgroundColor="#1E293B"
+                       CornerRadius="20"
+                       Padding="20"
+                       HasShadow="True">
+                    <VerticalStackLayout Spacing="15">
+                        <Label Text="Workout Progress"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="White" />
+
+                        <Label Text="You completed 4 of 5 workouts this week"
+                               FontSize="15"
+                               TextColor="white" />
+
+                        <ProgressBar Progress="0.8"
+                                     HeightRequest="14"
+                                     ProgressColor="#3B82F6"
+                                     BackgroundColor="White" />
+
+                        <HorizontalStackLayout>
+                            <Label Text="80% Completed"
+                                   FontSize="14"
+                                   TextColor="#93C5FD" />
+                            <Label Text="Goal: 5 Sessions"
+                                   FontSize="14"
+                                   TextColor="#A7F3D0"
+                                   HorizontalOptions="EndAndExpand" />
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Calories Burned -->
+                <Frame BackgroundColor="#1E293B"
+                       CornerRadius="20"
+                       Padding="20"
+                       HasShadow="True">
+                    <VerticalStackLayout Spacing="15">
+                        <Label Text="Calories Burned"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="White" />
+
+                        <Label Text="Today: 550 / 1000 kcal burned"
+                               FontSize="15"
+                               TextColor="#E2E8F0" />
+
+                        <ProgressBar Progress="0.55"
+                                     HeightRequest="14"
+                                     ProgressColor="#F59E0B"
+                                     BackgroundColor="#334155" />
+
+                        <HorizontalStackLayout>
+                            <Label Text="550 kcal"
+                                   FontSize="14"
+                                   TextColor="#FDE68A" />
+                            <Label Text="Goal: 1000 kcal"
+                                   FontSize="14"
+                                   TextColor="#FBBF24"
+                                   HorizontalOptions="EndAndExpand" />
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

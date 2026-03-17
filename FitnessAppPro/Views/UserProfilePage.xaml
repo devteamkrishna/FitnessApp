@@ -1,0 +1,126 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnessAppPro.Views.UserProfilePage"
+             Title="User Profile"
+             BackgroundColor="#f5f6fa">
+
+    <Grid>
+        <!-- Background Image -->
+        <Image Source="userbg.jpg"
+               Aspect="AspectFill"
+               Opacity="0.4"
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="FillAndExpand"/>
+
+        <ScrollView>
+            <StackLayout Padding="20" Spacing="25" VerticalOptions="CenterAndExpand">
+
+                <!-- Profile Image -->
+                <Frame Padding="0"
+                       HasShadow="True"
+                       CornerRadius="75"
+                       WidthRequest="150"
+                       HeightRequest="150"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       BackgroundColor="White">
+                    <Image Source="profile_image.jpg"
+                           Aspect="AspectFill"
+                           WidthRequest="150"
+                           HeightRequest="150"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
+                </Frame>
+
+                <!-- User Name -->
+                <Label Text="Jeremy Rose"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="White"/>
+
+                <!-- Fitness Goal -->
+                <Label Text="Intermediate | Muscle Gain"
+                       FontSize="18"
+                       HorizontalOptions="Center"
+                       TextColor="White"/>
+
+                <!-- Progress Score -->
+                <Label Text="Progress Score: 8.6/10"
+                       FontSize="18"
+                       HorizontalOptions="Center"
+                       TextColor="White"/>
+
+                <!-- Weekly Goal -->
+                <Label Text="✅ Weekly Goal: 4/5 Workouts Done"
+                       FontSize="16"
+                       HorizontalOptions="Center"
+                       TextColor="White"/>
+
+                <!-- Horizontal Scroll Cards -->
+                <ScrollView Orientation="Horizontal">
+                    <StackLayout Orientation="Horizontal" Spacing="20" Padding="10">
+
+                        <!-- Contact Info -->
+                        <Frame Padding="20" CornerRadius="12" BackgroundColor="Transparent" BorderColor="Transparent" HasShadow="True">
+                            <StackLayout Spacing="12">
+                                <Label Text="📧  jeremyrose@example.com" FontSize="16" TextColor="White"/>
+                                <Label Text="📞  +1 123 456 7890" FontSize="16" TextColor="White"/>
+                                <Label Text="📍  New York, NY" FontSize="16" TextColor="White"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <!-- Body Stats -->
+                        <Frame Padding="20" CornerRadius="12" BackgroundColor="Transparent" BorderColor="Transparent" HasShadow="True">
+                            <StackLayout Spacing="12">
+                                <Label Text="🎂 Age: 33" FontSize="16" TextColor="White"/>
+                                <Label Text="⚖️ Weight: 180 lbs" FontSize="16" TextColor="White"/>
+                                <Label Text="📏 Height: 5'10" FontSize="16" TextColor="White"/>
+                                <Label Text="🔥 Body Fat: 14.5%" FontSize="16" TextColor="White"/>
+                                <Label Text="📊 BMI: 23.1" FontSize="16" TextColor="White"/>
+                                <Label Text="🏋️‍♂️ Workout Streak: 5 days" FontSize="16" TextColor="White"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <!-- Membership Info -->
+                        <Frame Padding="20" CornerRadius="12" BackgroundColor="Transparent" BorderColor="Transparent" HasShadow="True">
+                            <StackLayout Spacing="12">
+                                <Label Text="💳 Membership Type: Gold" FontSize="16" TextColor="White"/>
+                                <Label Text="📆 Expiry Date: 30 Dec 2025" FontSize="16" TextColor="White"/>
+                                <Label Text="🏠 Gym Location: Downtown LA" FontSize="16" TextColor="White"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <!-- Progress Photos -->
+                        <StackLayout Orientation="Vertical" Spacing="10">
+                            <Label Text="📸 Progress Photos" FontSize="18" FontAttributes="Bold" TextColor="White" HorizontalOptions="Start"/>
+
+                            <!--<CarouselView x:Name="carouselView" HeightRequest="220">
+                                <CarouselView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Image Source="{Binding}" WidthRequest="300" HeightRequest="200" Aspect="AspectFill"/>
+                                    </DataTemplate>
+                                </CarouselView.ItemTemplate>
+                            </CarouselView>-->
+                        </StackLayout>
+
+                    </StackLayout>
+                </ScrollView>
+
+                <!-- Action Buttons -->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="20">
+                    <Button Text="View Workout Plan"
+                            BackgroundColor="CadetBlue"
+                            TextColor="White"
+                            CornerRadius="25"
+                            WidthRequest="175"
+                            HeightRequest="50"
+                            FontAttributes="Bold" 
+                            Clicked="OnViewWorkoutPlanClicked"/>
+                </StackLayout>
+
+            </StackLayout>
+            
+        </ScrollView>
+    </Grid>
+</ContentPage>

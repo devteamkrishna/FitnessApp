@@ -1,0 +1,115 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnessAppPro.Views.SubscriptionPage">
+
+    <Grid>
+        <!-- Background image -->
+        <Image Source="payment.jpg"
+               Aspect="AspectFill"
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="FillAndExpand" />
+
+        <!-- Dark overlay for readability -->
+        <BoxView Color="#99000000"
+                 HorizontalOptions="FillAndExpand"
+                 VerticalOptions="FillAndExpand" />
+
+        <!-- Content -->
+        <ScrollView>
+            <VerticalStackLayout Padding="20" Spacing="25">
+
+                <Label Text="Choose Your Gym Plan"
+                       FontSize="28"
+                       FontAttributes="Bold"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       Margin="0,10,0,20" />
+
+                <!-- Plans in a grid for responsiveness -->
+                <Grid ColumnSpacing="15" RowSpacing="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- 3 Month Plan -->
+                    <Frame Grid.Row="0" Grid.Column="0"
+                           BorderColor="Transparent" CornerRadius="15" Padding="15"
+                           BackgroundColor="Transparent" HasShadow="True">
+                        <VerticalStackLayout Spacing="10" HorizontalOptions="Center">
+                            <Label Text="3 MONTH PLAN" FontSize="16" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center"/>
+                            <Label Text="$29.99" FontSize="20" TextColor="Lime" FontAttributes="Bold" HorizontalOptions="Center"/>
+                            <Label Text="✔ Access to all gym equipment" TextColor="White" FontSize="14"/>
+                            <Label Text="✔ Free diet consultation" TextColor="White" FontSize="14"/>
+                            <Button Text="Get Started"
+                                    BackgroundColor="#00CFFF"
+                                    TextColor="White"
+                                    CornerRadius="10"
+                                    CommandParameter="3"
+                                    Clicked="OnSubscriptionSelected"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <!-- 6 Month Plan -->
+                    <Frame Grid.Row="0" Grid.Column="1"
+                           BorderColor="Transparent" CornerRadius="15" Padding="15"
+                           BackgroundColor="Transparent" HasShadow="True">
+                        <VerticalStackLayout Spacing="10" HorizontalOptions="Center">
+                            <Label Text="6 MONTH PLAN" FontSize="16" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center"/>
+                            <Label Text="$49.99" FontSize="20" TextColor="Lime" FontAttributes="Bold" HorizontalOptions="Center"/>
+                            <Label Text="✔ Everything in 3-month plan" TextColor="White" FontSize="14"/>
+                            <Label Text="✔ 2 Personal Training Sessions" TextColor="White" FontSize="14"/>
+                            <Button Text="Get Started"
+                                    BackgroundColor="#00CFFF"
+                                    TextColor="White"
+                                    CornerRadius="10"
+                                    CommandParameter="6"
+                                    Clicked="OnSubscriptionSelected"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <!-- 9 Month Plan -->
+                    <Frame Grid.Row="1" Grid.Column="0"
+                           BorderColor="Transparent" CornerRadius="15" Padding="15"
+                           BackgroundColor="Transparent" HasShadow="True">
+                        <VerticalStackLayout Spacing="10" HorizontalOptions="Center">
+                            <Label Text="9 MONTH PLAN" FontSize="16" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center"/>
+                            <Label Text="$69.99" FontSize="20" TextColor="Lime" FontAttributes="Bold" HorizontalOptions="Center"/>
+                            <Label Text="✔ Everything in 6-month plan" TextColor="White" FontSize="14"/>
+                            <Label Text="✔ Free fitness assessment" TextColor="White" FontSize="14"/>
+                            <Button Text="Get Started"
+                                    BackgroundColor="#00CFFF"
+                                    TextColor="White"
+                                    CornerRadius="10"
+                                    CommandParameter="9"
+                                    Clicked="OnSubscriptionSelected"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <!-- 12 Month Plan -->
+                    <Frame Grid.Row="1" Grid.Column="1"
+                           BorderColor="Transparent" CornerRadius="15" Padding="15"
+                           BackgroundColor="Transparent" HasShadow="True">
+                        <VerticalStackLayout Spacing="10" HorizontalOptions="Center">
+                            <Label Text="12 MONTH PLAN" FontSize="16" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center"/>
+                            <Label Text="$89.99" FontSize="20" TextColor="Lime" FontAttributes="Bold" HorizontalOptions="Center"/>
+                            <Label Text="✔ Everything in 9-month plan" TextColor="White" FontSize="14"/>
+                            <Label Text="✔ 4 Personal Training Sessions" TextColor="White" FontSize="14"/>
+                            <Label Text="✔ Free nutritional guide" TextColor="White" FontSize="14"/>
+                            <Button Text="Get Started"
+                                    BackgroundColor="#00CFFF"
+                                    TextColor="White"
+                                    CornerRadius="10"
+                                    CommandParameter="12"
+                                    Clicked="OnSubscriptionSelected"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </Grid>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

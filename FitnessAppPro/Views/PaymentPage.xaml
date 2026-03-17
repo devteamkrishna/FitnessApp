@@ -1,0 +1,147 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnessAppPro.Views.PaymentPage"
+             Title="Payment"
+             BackgroundColor="Transparent">
+
+    <Grid>
+
+        <!-- Background Image -->
+        <Image Source="payment.jpg"
+               Aspect="AspectFill"
+               Opacity="0.7"
+               InputTransparent="True"/>
+
+        <!-- Semi-transparent overlay -->
+        <BoxView BackgroundColor="#80000000" />
+        <!-- black 50% opacity -->
+
+        <!-- Main content -->
+        <ScrollView>
+            <VerticalStackLayout Padding="20" Spacing="25">
+
+                <!-- Plan & Amount Card -->
+                <Frame CornerRadius="20"
+                       Padding="20"
+                       BackgroundColor="Transparent" 
+                       BorderColor="Transparent"
+                       HasShadow="True"
+                       HorizontalOptions="Center"
+                       WidthRequest="320">
+
+                    <VerticalStackLayout Spacing="10" HorizontalOptions="Center">
+
+                        <Label x:Name="PlanLabel"
+                               FontSize="24"
+                               TextColor="White"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"/>
+
+                        <Label x:Name="AmountLabel"
+                               FontSize="20"
+                               TextColor="White"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Payment Method Label -->
+                <Label Text="Choose a Payment Method"
+                       FontSize="19"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       Margin="0,10,0,10"/>
+
+                <!-- Payment Options -->
+                <VerticalStackLayout Spacing="15">
+                    <Frame CornerRadius="25" BackgroundColor="Transparent" WidthRequest="400">
+                        <RadioButton GroupName="PaymentMethod"
+                                     Content="UPI"
+                                     Value="UPI"
+                                     CheckedChanged="OnPaymentMethodChanged"
+                                     TextColor="White"
+                                     FontAttributes="Bold"/>
+                    </Frame>
+
+                    <Frame CornerRadius="25" BackgroundColor="Transparent" WidthRequest="400" >
+                        <RadioButton GroupName="PaymentMethod"
+                                     Content="Credit/Debit Card"
+                                     Value="Card"
+                                     CheckedChanged="OnPaymentMethodChanged"
+                                     TextColor="White"
+                                     FontAttributes="Bold"/>
+                    </Frame>
+                </VerticalStackLayout>
+
+                <!-- Dynamic Payment Form -->
+                <VerticalStackLayout x:Name="PaymentForm" Spacing="25" WidthRequest="400" IsVisible="False">
+
+                    <!-- UPI -->
+                    <Entry x:Name="UpiEntry"
+                           Placeholder="Enter UPI ID"
+                           IsVisible="False"
+                           TextColor="White"
+                           BackgroundColor="Transparent"
+                           HeightRequest="50"                         
+                           Keyboard="Email"/>
+
+                    <!-- Card -->
+                    <Entry x:Name="NameonCardEntry"
+                            Placeholder="Card Name"
+                            IsVisible="False"
+                            TextColor="White"
+                            BackgroundColor="Transparent"
+                            HeightRequest="50"/>
+                    
+                    <Entry x:Name="CardNumberEntry"
+                            Placeholder="Card Number"
+                            IsVisible="False"
+                            TextColor="White"
+                            BackgroundColor="Transparent"
+                            HeightRequest="50"
+                            Keyboard="Numeric"
+                            TextChanged="CardNumberEntry_TextChanged"/>
+
+                    <Label x:Name="CardValidationLabel"
+                            Text=""
+                            TextColor="Red"
+                            FontAttributes="Bold"
+                            FontSize="14"/>                  
+
+                    <Entry x:Name="CardExpiryEntry"
+                            Placeholder="MM/YY"
+                            IsVisible="False"
+                            TextColor="White"
+                            BackgroundColor="Transparent"
+                            HeightRequest="50"
+                            Keyboard="Numeric"
+                            TextChanged="CardExpiryEntry_TextChanged"/>
+                    
+                    <Label x:Name="ExpiryValidationLabel"
+                            Text=""
+                            TextColor="Red"
+                            FontSize="14"
+                            FontAttributes="Bold"/>
+                    
+                    <Entry x:Name="CardCvvEntry"
+                           Placeholder="CVV"
+                           IsVisible="False"
+                           TextColor="White"
+                           BackgroundColor="Transparent"
+                           HeightRequest="50"
+                           Keyboard="Numeric"
+                           IsPassword="True" TextChanged="CardNumberEntry_TextChanged"/>
+                </VerticalStackLayout>
+
+                <!-- Pay Now Button -->
+                <Button Text="Pay Now"
+                        BackgroundColor="#00CFFF"
+                        TextColor="White"
+                        CornerRadius="15"
+                        HeightRequest="55"
+                        FontAttributes="Bold"
+                        HorizontalOptions="FillAndExpand"
+                        Clicked="OnConfirmPayment"/>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

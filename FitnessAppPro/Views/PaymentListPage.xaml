@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnessAppPro.Views.PaymentListPage"
+             xmlns:local="clr-namespace:FitnessAppPro.ViewModels">
+    <ContentPage.Content>
+        <!-- Use AbsoluteLayout to layer the background image -->
+        <AbsoluteLayout>
+            <!-- Background Image -->
+            <Image Source="payment.jpg" 
+                   Aspect="AspectFill" 
+                   Opacity="0.3" 
+                   AbsoluteLayout.LayoutFlags="All" 
+                   AbsoluteLayout.LayoutBounds="0, 0, 1, 1"/>
+
+            <!-- Grid Content -->
+            <Grid Padding="20" RowDefinitions="Auto,*,Auto"
+                  AbsoluteLayout.LayoutFlags="All" 
+                  AbsoluteLayout.LayoutBounds="0, 0, 1, 1">
+                <!-- Search Bar for filtering -->
+                <SearchBar Grid.Row="0"
+                           Placeholder="Search by name or amount..."
+                           Text="{Binding SearchText}"
+                           Margin="0,0,0,20"/>
+
+                <!-- Collection View for displaying filtered items -->
+                <CollectionView Grid.Row="1" 
+                                ItemsSource="{Binding FilteredPayments}"
+                                Margin="0,20">
+
+                    <CollectionView.Header>
+                        <!-- Table Header -->
+                        <Grid ColumnDefinitions="2*,*,*,*"
+                              Padding="10"
+                              BackgroundColor="Transparent">
+                            <Label Text="Name" 
+                                   FontAttributes="Bold" 
+                                   TextColor="Black"/>
+                            <Label Text="Amount" 
+                                   Grid.Column="1" 
+                                   FontAttributes="Bold" 
+                                   TextColor="Black"
+                                   HorizontalOptions="Center"/>
+                            <Label Text="Date" 
+                                   Grid.Column="2" 
+                                   FontAttributes="Bold" 
+                                   TextColor="Black"
+                                   HorizontalOptions="Center"/>
+                            <Label Text="Period" 
+                                   Grid.Column="3" 
+                                   FontAttributes="Bold" 
+                                   TextColor="Black"
+                                   HorizontalOptions="Center"/>
+                        </Grid>
+                    </CollectionView.Header>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <!-- Table Row -->
+                            <Grid ColumnDefinitions="2*,*,*,*"
+                                  Padding="10"
+                                  BackgroundColor="Transparent">
+                                <!-- Name -->
+                                <Label Text="{Binding Username}" 
+                                       TextColor="Black" />
+
+                                <!-- Amount -->
+                                <Label Text="{Binding Amount, StringFormat='${0:F2}'}" 
+                                       Grid.Column="1"
+                                       TextColor="#4CAF50" 
+                                       FontAttributes="Bold"
+                                       HorizontalOptions="Center"/>
+
+                                <!-- Date -->
+                                <Label Text="{Binding PaymentDate, StringFormat='{0:MMM/yyyy/dd}'}" 
+                                       Grid.Column="2"
+                                       TextColor="Black"
+                                       HorizontalOptions="Center"/>
+
+                                <!-- Period -->
+                                <Label Text="{Binding Period}" 
+                                       Grid.Column="3"
+                                       TextColor="Black"
+                                       HorizontalOptions="Center"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

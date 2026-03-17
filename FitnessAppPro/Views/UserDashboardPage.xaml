@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="FitnessAppPro.Views.UserDashboardPage">
+    <Grid>
+        <!-- Background Image -->
+        <Image Source="bg_gym.png"
+               Aspect="AspectFill"
+               Opacity="0.9"
+               HorizontalOptions="Fill"
+               VerticalOptions="FillAndExpand" />
+
+        <ScrollView>
+            <VerticalStackLayout Padding="20" Spacing="30">
+
+                <!-- User Profile -->
+                <HorizontalStackLayout Spacing="15" VerticalOptions="Center">
+                    <Frame WidthRequest="70" HeightRequest="70" CornerRadius="35" IsClippedToBounds="True" Padding="0">
+                        <Image Source="profile_image.jpg" Aspect="AspectFill" />
+                    </Frame>
+                    <VerticalStackLayout VerticalOptions="Center">
+                        <Label Text="{Binding UserName}" FontSize="26" FontAttributes="Bold" TextColor="White"/>
+                        <Label Text="Welcome back!" FontSize="14" TextColor="LightGray"/>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+
+                <!-- Fitness Stats Overview -->
+                <Grid ColumnSpacing="20" RowSpacing="20" Padding="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Frame Grid.Column="0" BackgroundColor="Transparent" CornerRadius="15" Padding="15" HasShadow="True">
+                        <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                            <Label Text="Workouts" FontSize="18" TextColor="White" />
+                            <Label Text="{Binding TotalWorkouts}" FontSize="28" FontAttributes="Bold" TextColor="#AED6F1" />
+                            <Label Text="Completed" FontSize="14" TextColor="#AED6F1" />
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame Grid.Column="1" BackgroundColor="Transparent" CornerRadius="15" Padding="15" HasShadow="True">
+                        <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                            <Label Text="Calories" FontSize="18" TextColor="White" />
+                            <Label Text="{Binding CaloriesBurned, StringFormat='{0:N0}'}" FontSize="28" FontAttributes="Bold" TextColor="#ABEBC6" />
+                            <Label Text="Burned" FontSize="14" TextColor="#ABEBC6" />
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame Grid.Column="2" BackgroundColor="Transparent" CornerRadius="15" Padding="15" HasShadow="True">
+                        <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                            <Label Text="Active Days" FontSize="18" TextColor="White" />
+                            <Label Text="{Binding ActiveDays}" FontSize="28" FontAttributes="Bold" TextColor="#FAD7A0" />
+                            <Label Text="This Month" FontSize="14" TextColor="#FAD7A0" />
+                        </VerticalStackLayout>
+                    </Frame>
+                </Grid>
+
+                <!-- Subscription Status -->
+                <Frame BackgroundColor="Transparent" CornerRadius="15" Padding="20" HasShadow="True">
+                    <HorizontalStackLayout Spacing="15" VerticalOptions="Center">
+                        <Label Text="Subscription" FontSize="20" TextColor="White" VerticalOptions="Center" />
+                        <Label Text="{Binding SubscriptionStatus}" FontSize="20" FontAttributes="Bold" TextColor="White" VerticalOptions="Center" HorizontalOptions="EndAndExpand" />
+                        <Button Text="Manage" BackgroundColor="#2980B9" TextColor="Black" CornerRadius="8" WidthRequest="90" Clicked="OnViewmanageClicked"/>
+                    </HorizontalStackLayout>
+                </Frame>
+
+                <!-- Quick Action Buttons -->
+                <HorizontalStackLayout Spacing="15" HorizontalOptions="Center">
+                    <Button Text="Start Workout" BackgroundColor="#E67E22" TextColor="Black" CornerRadius="10" WidthRequest="140"  Clicked="OnViewWorkoutPlanClicked"/>
+                    <Button Text="View Diet Plan" BackgroundColor="#3498DB" TextColor="Black" CornerRadius="10" WidthRequest="140"  Clicked="OnViewDietPlanClicked"/>
+                    <Button Text="Track Progress" BackgroundColor="#16A085" TextColor="Black" CornerRadius="10" WidthRequest="140" Clicked="OnViewTrackprogressClicked"/>
+                </HorizontalStackLayout>
+
+                <!-- Recent Activities -->
+                <Label Text="Recent Activities" FontSize="24" FontAttributes="Bold" TextColor="White" />
+
+                <CollectionView ItemsSource="{Binding RecentActivities}" HeightRequest="300" Margin="20">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Padding="20" Margin="0,10" CornerRadius="15" BackgroundColor="Transparent" HasShadow="False">
+                                <HorizontalStackLayout Spacing="30" VerticalOptions="Center">
+
+                                    <Label Text="{Binding Date, StringFormat='{0:MMM dd}'}" FontSize="16" 
+                                           TextColor="LightGray" HorizontalOptions="Start" />
+
+                                    <Label Text="{Binding ActivityDescription}" FontSize="16" 
+                                                TextColor="White" HorizontalOptions="CenterAndExpand" />
+
+                                    <Label Text="{Binding Duration, StringFormat='{0} mins'}" FontSize="16" 
+                                           TextColor="#58D68D" HorizontalOptions="End" />
+                                </HorizontalStackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

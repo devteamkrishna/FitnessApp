@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnessAppPro.Views.UserListPage"
+             Title="User List">
+
+    <ContentPage.Content>
+        <Grid>
+            <Image Source="userbg.jpg" Aspect="AspectFill" Opacity="0.3" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1"/>
+
+            <Grid Padding="20" RowDefinitions="Auto,Auto,*,Auto">
+
+                <!-- Search + Filter -->
+                <StackLayout Orientation="Horizontal" Spacing="10">
+                    <!-- Search Bar -->
+                    <SearchBar  Placeholder="Search by username or email..."
+                           Text="{Binding SearchText}" TextColor="White"
+                           SearchCommand="{Binding SearchCommand}"
+                           WidthRequest="220"/>
+
+                    <!-- Filter Dropdown -->
+                    <Picker Title="Filter by Role" TextColor="White"
+                        ItemsSource="{Binding RoleOptions}"
+                        SelectedItem="{Binding SelectedRole}"
+                        WidthRequest="160"/>
+                </StackLayout>
+
+                <!-- User List -->
+                <CollectionView Grid.Row="2" 
+                            ItemsSource="{Binding PagedUsers}"
+                            Margin="0,20">
+
+                    <CollectionView.Header>
+                        <!-- Table Header -->
+                        <Grid ColumnDefinitions="2*,2*,*,*" 
+                          Padding="10"
+                          BackgroundColor="Transparent">
+                            <Label Text="Username" 
+                               FontAttributes="Bold" 
+                               TextColor="White"/>
+                            <Label Text="Email" 
+                               Grid.Column="1" 
+                               FontAttributes="Bold" 
+                               TextColor="White"/>
+                            <Label Text="Join Date" 
+                               Grid.Column="2" 
+                               FontAttributes="Bold" 
+                               TextColor="White"
+                               HorizontalOptions="Center"/>
+                            <Label Text="Role" 
+                               Grid.Column="3" 
+                               FontAttributes="Bold" 
+                               TextColor="White"
+                               HorizontalOptions="Center"/>
+                        </Grid>
+                    </CollectionView.Header>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <!-- Table Row -->
+                            <Grid ColumnDefinitions="2*,2*,*,*" 
+                              Padding="10"
+                              BackgroundColor="Transparent">
+
+                                <!-- Username -->
+                                <Label Text="{Binding Username}" 
+                                   TextColor="Black" />
+
+                                <!-- Email -->
+                                <Label Text="{Binding Email}" 
+                                   Grid.Column="1"
+                                   TextColor="Black" />
+
+                                <!-- Join Date -->
+                                <Label Text="{Binding JoinDate, StringFormat='{0:MMM/dd/yyyy}'}" 
+                                   Grid.Column="2"
+                                   TextColor="Black"
+                                   HorizontalOptions="Center"/>
+
+                                <!-- Role -->
+                                <Label Text="{Binding Role}" 
+                                   Grid.Column="3"
+                                   TextColor="Black"
+                                   HorizontalOptions="Center"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <!-- Pagination -->
+                <StackLayout Grid.Row="3" Orientation="Horizontal" 
+                         HorizontalOptions="Center" Spacing="15" Padding="10">
+                    <Button Text="Previous"
+                        Command="{Binding PreviousPageCommand}"
+                        IsEnabled="{Binding CanGoPrevious}"/>
+                    <Label Text="{Binding CurrentPageDisplay}"
+                       VerticalOptions="Center"/>
+                    <Button Text="Next"
+                        Command="{Binding NextPageCommand}"
+                        IsEnabled="{Binding CanGoNext}"/>
+                </StackLayout>
+
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnessAppPro.Views.AdminDashboardPage"
+             BackgroundColor="Transparent">
+
+    <ScrollView>
+        <Grid>
+            <!-- Background Image -->
+            <Image Source="gymming.png"
+                   Aspect="AspectFill"
+                   Opacity="0.9"
+                   HorizontalOptions="Fill"
+                   VerticalOptions="FillAndExpand" />
+
+            <!-- Main Content -->
+            <VerticalStackLayout Padding="20" Spacing="30">
+
+                <!-- Header -->
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Admin " FontSize="40" FontAttributes="Bold" TextColor="White"/>
+                            <Span Text="Dashboard" FontSize="40" FontAttributes="Bold" TextColor="Yellow"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <!-- Top Info Cards -->
+                <HorizontalStackLayout Spacing="15">
+                    <Frame BackgroundColor="#0078D4" CornerRadius="20" Padding="15" WidthRequest="420">
+                        <VerticalStackLayout>
+                            <Label Text="Account Balance" FontSize="16" TextColor="White" />
+                            <Label Text="$1,234.56" FontSize="20" FontAttributes="Bold" TextColor="White" />
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame BackgroundColor="#FF9800" CornerRadius="20" Padding="15" WidthRequest="420">
+                        <VerticalStackLayout>
+                            <Label Text="Recent Activity" FontSize="16" TextColor="White" />
+                            <Label Text="Last Payment: $50.00" FontSize="20" FontAttributes="Bold" TextColor="White" />
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame BackgroundColor="#4CAF50" CornerRadius="20" Padding="15" WidthRequest="420">
+                        <VerticalStackLayout>
+                            <Label Text="Upcoming Payments" FontSize="16" TextColor="White" />
+                            <Label Text="Next Payment: $100.00" FontSize="20" FontAttributes="Bold" TextColor="White" />
+                        </VerticalStackLayout>
+                    </Frame>
+                </HorizontalStackLayout>
+
+                <!-- Dashboard Stats -->
+                <Grid ColumnSpacing="15" RowSpacing="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Pending Payments -->
+                    <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="Transparent" BorderColor="White" CornerRadius="10" Padding="10">
+                        <VerticalStackLayout HorizontalOptions="Center">
+                            <Label Text="Pending Payments" FontSize="18" TextColor="White" FontAttributes="Bold"/>
+                            <Label Text="15" FontSize="32" TextColor="Orange" FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <!-- Revenue -->
+                    <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="Transparent" BorderColor="White" CornerRadius="10" Padding="10">
+                        <VerticalStackLayout HorizontalOptions="Center">
+                            <Label Text="Revenue" FontSize="18" TextColor="White" FontAttributes="Bold"/>
+                            <Label Text="$12,500" FontSize="32" TextColor="LightGreen" FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <!-- Total Users -->
+                    <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="Transparent" BorderColor="White" CornerRadius="10" Padding="10">
+                        <VerticalStackLayout HorizontalOptions="Center">
+                            <Label Text="Total Users" FontSize="18" TextColor="White" FontAttributes="Bold"/>
+                            <Label Text="120" FontSize="32" TextColor="SkyBlue" FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <!-- Active Subscriptions -->
+                    <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="Transparent" BorderColor="White" CornerRadius="10" Padding="10">
+                        <VerticalStackLayout HorizontalOptions="Center">
+                            <Label Text="Active Subscriptions" FontSize="18" TextColor="White" FontAttributes="Bold"/>
+                            <Label Text="85" FontSize="32" TextColor="Yellow" FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </Grid>
+
+                <!-- Analytics Overview Section -->
+                <VerticalStackLayout Spacing="15" Padding="0,30,0,0">
+
+                    <Label Text="📊 Analytics Overview"
+                           FontSize="22"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           HorizontalOptions="Center"/>
+
+                    <Grid ColumnSpacing="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- New Users -->
+                        <Frame Grid.Column="0" BackgroundColor="#2980b9" CornerRadius="12" Padding="15" HasShadow="True">
+                            <VerticalStackLayout>
+                                <Label Text="New Users" FontSize="16" TextColor="White" />
+                                <Label Text="25" FontSize="24" FontAttributes="Bold" TextColor="White" />
+                                <Label Text="This Month" FontSize="14" TextColor="#d0e6ff" />
+                            </VerticalStackLayout>
+                        </Frame>
+
+                        <!-- Churn Rate -->
+                        <Frame Grid.Column="1" BackgroundColor="#d35400" CornerRadius="12" Padding="15" HasShadow="True">
+                            <VerticalStackLayout>
+                                <Label Text="Churn Rate" FontSize="16" TextColor="White" />
+                                <Label Text="5.2%" FontSize="24" FontAttributes="Bold" TextColor="White" />
+                                <Label Text="vs last month" FontSize="14" TextColor="#ffe3c9" />
+                            </VerticalStackLayout>
+                        </Frame>
+
+                        <!-- Workout Completion -->
+                        <Frame Grid.Column="2" BackgroundColor="#27ae60" CornerRadius="12" Padding="15" HasShadow="True">
+                            <VerticalStackLayout>
+                                <Label Text="Workout Completion" FontSize="16" TextColor="White" />
+                                <Label Text="76%" FontSize="24" FontAttributes="Bold" TextColor="White" />
+                                <Label Text="Avg This Month" FontSize="14" TextColor="#ccf5dd" />
+                            </VerticalStackLayout>
+                        </Frame>
+                    </Grid>
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

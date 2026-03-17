@@ -1,0 +1,126 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnessAppPro.SignupPage">
+
+    <Grid>
+        <!-- Full background image -->
+        <Image x:Name="BackgroundImageOld"
+               Source="gym_background1.jpg"
+               Aspect="AspectFill"
+               Opacity="0.75"
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="FillAndExpand" />
+
+        <Image x:Name="BackgroundImageNew"
+               Aspect="AspectFill"
+               Opacity="0"
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="FillAndExpand"
+               TranslationX="0" />
+
+        <!-- Content -->
+        <ScrollView>
+            <VerticalStackLayout Padding="30" Spacing="25" VerticalOptions="Center" HorizontalOptions="Center">
+
+                <Label Text="Sign Up"
+                       FontSize="32"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="White" />
+
+                <!-- Frosted glass-style frame -->
+                <Frame BackgroundColor="Transparent"
+                       CornerRadius="35"
+                       Padding="20"
+                       WidthRequest="450"
+                       HasShadow="True">
+
+                    <VerticalStackLayout Spacing="15">
+
+                        <Entry x:Name="NameEntry"
+                                Placeholder="Full Name"
+                                BackgroundColor="Transparent"
+                                TextColor="WhiteSmoke"
+                                HeightRequest="45"
+                                FontAttributes="Bold" />
+
+                        <Entry x:Name="UserNameEntry"
+                               Placeholder="Username"
+                              BackgroundColor="Transparent"
+                                TextColor="WhiteSmoke"
+                               HeightRequest="45" FontAttributes="Bold" />
+
+                        <Entry x:Name="EmailEntry"
+                               Placeholder="Email Address"
+                               Keyboard="Email"
+                              BackgroundColor="Transparent"
+                                TextColor="WhiteSmoke"
+                               HeightRequest="45" FontAttributes="Bold" />
+
+                        <Entry x:Name="PhoneEntry"
+                               Placeholder="Phone Number"
+                               Keyboard="Telephone"
+                              BackgroundColor="Transparent"
+                                TextColor="WhiteSmoke"
+                               HeightRequest="45" FontAttributes="Bold" />
+
+                        <DatePicker x:Name="DoBEntry"
+                                   BackgroundColor="Transparent"
+                                     TextColor="WhiteSmoke"
+                                    HeightRequest="45"
+                                    FontAttributes="Bold" />
+
+                        <Entry x:Name="HeightEntry"
+                               Placeholder="Height (e.g., 170 cm)"
+                              BackgroundColor="Transparent"
+                                TextColor="WhiteSmoke"
+                               HeightRequest="45" FontAttributes="Bold" />
+
+                        <Entry x:Name="WeightEntry"
+                               Placeholder="Weight (e.g., 65 kg)"
+                              BackgroundColor="Transparent"
+                                TextColor="WhiteSmoke"
+                               HeightRequest="45" FontAttributes="Bold" />
+
+                        <Picker x:Name="GenderEntry"
+                                Title="Select Gender"
+                                BackgroundColor="Transparent"
+                                TextColor="WhiteSmoke"
+                                TitleColor="White"
+                                FontAttributes="Bold"
+                                Margin="10,0">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Male</x:String>
+                                    <x:String>Female</x:String>
+                                    <x:String>Other</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+
+                        <Entry x:Name="PasswordEntry"
+                               Placeholder="Password"
+                               IsPassword="True"
+                              BackgroundColor="Transparent"
+                                TextColor="WhiteSmoke"
+                               HeightRequest="45" FontAttributes="Bold" />
+                        <Entry x:Name="ConfirmPasswordEntry"
+                               Placeholder="Confirm Password"
+                               IsPassword="True"
+                              BackgroundColor="Transparent"
+                                TextColor="WhiteSmoke"
+                               HeightRequest="45" FontAttributes="Bold" />
+
+                        <Button Text="Sign Up"
+                                BackgroundColor="#0099cc"
+                                TextColor="White"
+                                HeightRequest="45"
+                                WidthRequest="280"
+                                CornerRadius="10"
+                                Clicked="SignupClicked" FontAttributes="Bold" />
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,59 @@
+﻿<ContentPage
+    x:Class="FitnessAppPro.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Grid>
+        <!-- Background images -->
+        <Image x:Name="BackgroundImageOld"
+               Aspect="AspectFill"
+               Opacity="0.75"
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="FillAndExpand" />
+
+        <Image x:Name="BackgroundImageNew"
+               Aspect="AspectFill"
+               Opacity="0"
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="FillAndExpand"
+               TranslationX="0" />
+
+        <!-- Dark overlay -->
+        <BoxView BackgroundColor="#80000000"
+                 HorizontalOptions="FillAndExpand"
+                 VerticalOptions="FillAndExpand" />
+
+        <!-- Main Content -->
+        <VerticalStackLayout x:Name="MainContent"
+                             Padding="30"
+                             Spacing="20"
+                             VerticalOptions="Center"
+                             IsVisible="False">
+
+            <Label Text="Welcome to FitnessApp!"
+                   FontSize="40"
+                   HorizontalOptions="Center"
+                   TextColor="White"/>
+
+            <Button Text="Login"
+                    x:Name="LoginButton"
+                    BackgroundColor="#0078D7"
+                    TextColor="White"
+                    WidthRequest="120"
+                    HeightRequest="40"
+                    FontSize="Small"
+                    CornerRadius="8"
+                    Clicked="OnLoginClicked"/>
+
+            <Button Text="Signup"
+                    x:Name="SignupButton"
+                    BackgroundColor="#28A745"
+                    TextColor="White"
+                    WidthRequest="120"
+                    HeightRequest="40"
+                    FontSize="Small"
+                    CornerRadius="8"
+                    Clicked="OnSignupClicked"/>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
